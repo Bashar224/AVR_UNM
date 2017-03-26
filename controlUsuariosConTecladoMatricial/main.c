@@ -1,24 +1,28 @@
-/*******************************************************
-This program was created by the
-CodeWizardAVR V3.12 Advanced
-Automatic Program Generator
-© Copyright 1998-2014 Pavel Haiduc, HP InfoTech s.r.l.
-http://www.hpinfotech.com
+/********************************************************************
+Authors:	- Clos, Ana María
+            - López Lombardo, Ignacio Nahuel
+            - Prior, Xoana Vanesa
+            - Salinas, Erika Denise
 
-Project : 
-Version : 
-Date    : 19/11/2016
-Author  : 
-Company : 
-Comments: 
+Date:		19/11/2016
+Version:	v1.0
 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
 Chip type               : ATmega48
-AVR Core Clock frequency: 8,000000 MHz
+AVR Core Clock frequency: 8.000000 MHz
 Memory model            : Small
 External RAM size       : 0
 Data Stack size         : 128
-*******************************************************/
+*********************************************************************/
 
 #include <mega48.h>
 #include <delay.h>
@@ -77,7 +81,7 @@ if ((status & (FRAMING_ERROR | PARITY_ERROR | DATA_OVERRUN))==0)
    {
    rx_buffer0[rx_wr_index0++]=data;
 #if RX_BUFFER_SIZE0 == 256
-   // special case for receiver buffer size=256
+   // Special case for receiver buffer size=256
    if (++rx_counter0 == 0) rx_buffer_overflow0=1;
 #else
    if (rx_wr_index0 == RX_BUFFER_SIZE0) rx_wr_index0=0;
@@ -179,8 +183,9 @@ ok=0;
                 texto[i+1]=0;
                 i++;   
             }        
-        }               
-        else  //está en contraseña
+        }
+// Is in password               
+        else  
         {
             for(j=0;j<i && texto[j]!='*';j++) ;
             if(i<j+tope+1)
@@ -198,15 +203,17 @@ ok=0;
                 texto[0]=0; 
                 i=0;
             }
-            else//está en contraseña
+// Is in password
+            else
             {    
-                if(texto[i-1]=='*')  //no se cargó contraseña
+                if(texto[i-1]=='*')  // The password was not loaded
                 {          
                     enNombre=1;
                     texto[0]=0;                    
                     i=0;
                 }
-                else    //se cargó contraseña
+// Password loaded
+                else    
                 {       
                     for(j=0;j<i;j++)
                         {  
@@ -234,8 +241,9 @@ else if(valor=='*')
                 enNombre=0;
             }
            
-        }              
-        else  //está en contraseña
+        } 
+// Is in password             
+        else  
         {                   
             if(texto[i-1]!='*' )
             {                 
@@ -427,6 +435,5 @@ while (1)
             col=0x01;
       }
 }
-
 
 
