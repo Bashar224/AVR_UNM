@@ -1,5 +1,6 @@
 /********************************************************************
-Authors:	- Clos, Ana María
+Authors:	
+            - Clos, Ana María
             - López Lombardo, Ignacio Nahuel
             - Prior, Xoana Vanesa
             - Salinas, Erika Denise
